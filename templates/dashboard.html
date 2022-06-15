@@ -1,0 +1,76 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h1 class="h2">Dashboard</h1>
+    </div>
+
+    <div id ="Loader">
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border text-success " style="width: 10rem; height :10rem"role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+   </div>
+
+   <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card text-white bg-success mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Software Developer</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card text-white bg-primary mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Hardware Engineer</h5>
+          
+          <p class="card-text"></p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card text-dark bg-warning mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Web Developer</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+    <canvas class="my-4 w-100" width="500" height="50"></canvas>
+
+    <h2>Data Karyawan</h2>
+    <div class = "container">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">NIK</th>
+                <th scope="col">Nama Karyawan</th>
+                <th scope="col">jenis Kelamin</th>
+                <th scope="col">Tanggal Masuk</th>
+                <th scope="col">Jabatan</th>
+                <th scope="col">Divisi</th>
+                <th scope="col">Gaji</th>
+              </tr>
+            </thead>
+            <tbody>
+            {%for row in data%}
+              <tr>
+                <th scope="row">{{row[0]}}</th>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                <td>{{row[4]}}</td>
+                <td>{{row[5]}}</td>
+                <td>{{row[6]}}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+    </div>
+</main>
+{% endblock %}

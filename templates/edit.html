@@ -1,0 +1,59 @@
+{% extends 'index.html' %}
+
+{% block body %}
+  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h1 class="h2">Kelola Data Karyawan</h1>
+    </div>
+
+    <div id ="Loader">
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border text-success " style="width: 10rem; height :10rem"role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+   </div>
+
+  <div class = "container">
+      <a href="/tambah" class="btn btn-primary mt-4 mb-2"role ="button"><i class="bi bi-plus-square-fill"></i> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.2/font/bootstrap-icons.min.css" integrity="sha512-YzwGgFdO1NQw1CZkPoGyRkEnUTxPSbGWXvGiXrWk8IeSqdyci0dEDYdLLjMxq1zCoU0QBa4kHAFiRhUL3z2bow==" crossorigin="anonymous" referrerpolicy="no-referrer" /></i></a>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">NIK</th>
+                <th scope="col">Nama Karyawan</th>
+                <th scope="col">Jenis Kelamin</th>
+                <th scope="col">Tanggal Masuk</th>
+                <th scope="col">Jabatan</th>
+                <th scope="col">Divisi</th>
+                <th scope="col">Gaji/Bulan</th>
+                <th scope="col">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+            {%for row in data%}
+              <tr>
+                <th scope="row">{{row[0]}}</th>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                <td>{{row[4]}}</td>
+                <td>{{row[5]}}</td>
+                <td>{{row[6]}}</td>
+                <td>{{row[7]}}</td>
+                <td>
+                <a class="btn btn-success" href="/update/{{row[0]}}" role="button"><i class="bi bi-pencil-square"></i></a>
+                <a href="/deletekaryawan/{{ row[0]}}" onclick="confirm('Yakin menghapus data ini?')" class="btn btn-danger"><i class="bi bi-x-square"></i></a>
+                <a class="btn btn-success" href="/detile/{{row[0]}}" role="button"><i class="bi bi-ticket-detailed"></i></a>
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="btn btn-success" class="bi bi-ticket-detailed" viewBox="0 0 16 16">
+                  <path d="M4 5.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5ZM5 7a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2H5Z"/>
+                  <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5ZM1.5 4a.5.5 0 0 0-.5.5v1.05a2.5 2.5 0 0 1 0 4.9v1.05a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-1.05a2.5 2.5 0 0 1 0-4.9V4.5a.5.5 0 0 0-.5-.5h-13Z"/>
+                </svg> -->
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+    </div>
+</main>    
+{% endblock %}
